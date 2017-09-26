@@ -23,6 +23,7 @@
 		try{
 			$sql = 'SELECT * FROM products WHERE `color` = \'' . $_POST["color"] . '\'';
 			$stmt = $db->query($sql);
+			$selectQueriedHTML = "";
 
 			while($row = $stmt->fetch()){
 				$selectQueriedHTML .= "<li> Product Name: ".$row["product_name"]." Product Description: "
