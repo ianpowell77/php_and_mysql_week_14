@@ -51,7 +51,11 @@
 
 	<h2>Results</h2>
 	<ul>
-		<?= $selectQueriedHTML ?>
+		<?php
+			if(!empty($selectQueriedHTML)){ 
+				echo $selectQueriedHTML;
+			} 
+		?>
 	</ul>
 </body>
 </html>
