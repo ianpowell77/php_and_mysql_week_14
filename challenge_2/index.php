@@ -49,7 +49,14 @@
 		<input type="submit" name="submit" value="Submit">
 	</form>
 
-	<h2>Results</h2>
+	<h2>
+		<?php
+			if(!empty($selectQueriedHTML)){ 
+				echo "Results";
+			} 
+		?>
+			
+	</h2>
 	<ul>
 		<?php
 			if(!empty($selectQueriedHTML)){ 
