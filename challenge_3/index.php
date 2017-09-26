@@ -10,12 +10,11 @@ require("inc/db_inc.php");
 			$description = filter_input(INPUT_POST, $_POST["description"],FILTER_SANITIZE_STRING);
 			$price = filter_input(INPUT_POST, $_POST["price"],FILTER_SANITIZE_NUMBER_FLOAT);
 			$color = filter_input(INPUT_POST, $_POST["color"],FILTER_SANITIZE_STRING);
-			$stmt->execute(array(
-		      ':name' => $name,
-		      ':description' => $description,
-		      ':price' => $price,
-		      ':color' => strtolower($color),
-		    ));
+			$stmt->bindParam(':name', $name, PDO::PARAM_STR);
+			$stmt->bindParam(':description', $description, PDO::PARAM_STR);
+			$stmt->bindParam(':price', $price, PDO::PARAM_STR);
+			$stmt->bindParam(':color', $color, PDO::PARAM_STR);
+			$stmt->execute();
 		} catch (Exception $e) {
 			echo $e->getMessage();
 		}
