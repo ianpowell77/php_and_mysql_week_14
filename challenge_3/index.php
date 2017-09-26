@@ -7,7 +7,7 @@ require("inc/db_inc.php");
 			$sql .= "VALUES(:name, :description, :price, :color)";
 			$stmt = $db->prepare($sql);
 			$stmt->execute(array(
-		      ':name' => $_POST["name"],
+		      ':name' => filter_input(INPUT_POST, $_POST["name"],FILTER_SANITIZE_STRING),
 		      ':description' => $_POST["description"],
 		      ':price' => $_POST["price"],
 		      ':color' => strtolower($_POST["color"]),
