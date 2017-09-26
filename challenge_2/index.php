@@ -6,6 +6,8 @@
 
 		$stmt = $db->query($sql);
 
+		$selectInnerHTML = "";
+
 		while($row = $stmt->fetch()){
 			$selectInnerHTML .= '<option value="'
 			.$row["color"]
